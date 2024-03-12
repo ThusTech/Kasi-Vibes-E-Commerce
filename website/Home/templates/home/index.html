@@ -1,0 +1,8 @@
+{% extends "home/base.html" %}
+{% block content %}
+    <h1>Welcome to Kasi vibes</h1>
+    {% for post in posts %}
+        <h2>{{post.location}}</h2>
+        <p>Category :{{post.category}}</p>
+    {% endfor %}
+{% endblock content %}
