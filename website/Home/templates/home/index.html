@@ -1,8 +1,47 @@
 {% extends "home/base.html" %}
+{% load static %}
+
 {% block content %}
-    <h1>Welcome to Kasi vibes</h1>
-    {% for post in posts %}
-        <h2>{{post.location}}</h2>
-        <p>Category :{{post.category}}</p>
+    <style>
+
+        .product-list-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(216, 204, 189);
+            padding: 5%;
+            border-radius: 10px;
+        }
+        
+        .product-list-container img{
+            width: 375px;
+            height: 250px;
+            border: 2px solid #ff3d0036;
+            border-radius: 13px;
+            box-shadow: 4px 7px 7px 0px #00000042;
+            cursor: pointer;
+            margin: 10px;
+            transition: 400ms;
+        }
+
+        .product-list-container a{
+            text-decoration: none;
+            color: blue;
+            margin-top: 5px;
+        }
+
+        .product-list-container img:hover{
+            filter: grayscale(1);
+            transform: scale(1.03);
+        }
+    </style>
+    
+    {% for product in products %}
+        <div class="product-list-container">
+            <img class="curvy-image" src="{{ product.image.url }}">
+            <h2>{{product.name}}</h2>
+            <p>{{product.description}}</p>
+            <a href="#">read more...</a>
+        </div>
     {% endfor %}
 {% endblock content %}

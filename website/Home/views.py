@@ -1,20 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
-post = [
-    {
-        'location':'Katlehong',
-        'category':'Food',
-        'date': 'August 27, 2024'
-    }
-]
+from .models import Product
 
 # Create your views here.
 def home(request):
     context = {
-        'posts':post
+        'products': Product.objects.all()
     }
     return render(request,'home/index.html',context)
 
 def about(request):
     return render(request,'home/about.html',{'title':'About'})
+
+def landing(request):
+    return render(request,'home/landing.html')
