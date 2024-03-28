@@ -2,46 +2,21 @@
 {% load static %}
 
 {% block content %}
-    <style>
-
-        .product-list-container{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: rgb(216, 204, 189);
-            padding: 5%;
-            border-radius: 10px;
-        }
-        
-        .product-list-container img{
-            width: 375px;
-            height: 250px;
-            border: 2px solid #ff3d0036;
-            border-radius: 13px;
-            box-shadow: 4px 7px 7px 0px #00000042;
-            cursor: pointer;
-            margin: 10px;
-            transition: 400ms;
-        }
-
-        .product-list-container a{
-            text-decoration: none;
-            color: blue;
-            margin-top: 5px;
-        }
-
-        .product-list-container img:hover{
-            filter: grayscale(1);
-            transform: scale(1.03);
-        }
-    </style>
-    
-    {% for product in products %}
-        <div class="product-list-container">
-            <img class="curvy-image" src="{{ product.image.url }}">
-            <h2>{{product.name}}</h2>
-            <p>{{product.description}}</p>
-            <a href="#">read more...</a>
+    <div class="container my-5">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for product in products %}
+                <div class="col-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ product.image.url }}">
+                        <div class="card-body">
+                            <h2 class="card-title">{{product.name}}</h2>
+                            <p class="card-text">{{product.description}}</p>
+                            <a class="btn" href="#">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
+    </div>
+    
 {% endblock content %}

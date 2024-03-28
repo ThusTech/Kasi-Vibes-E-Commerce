@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'crispy_forms',
+    'crispy_bootstrap5',
+    'django_bootstrap5',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -102,6 +104,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+BOOTSTRAP5 = {
+    # The complete URL to the Bootstrap CSS file.
+    # Note that a URL can be either a string
+    # ("https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"),
+    # or a dict with keys `url`, `integrity` and `crossorigin` like the default value below.
+    "css_url": {
+        "url": "https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css",
+        "integrity": "sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx",
+        "crossorigin": "anonymous",
+    },
+    'wrapper_class': 'mb-3',
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -124,8 +139,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
