@@ -10,11 +10,3 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class Food(models.Model):
-    price = models.FloatField()
-    location = models.TextField(max_length=30)
-    ingredians = models.TextField(max_length=50)
-    category = models.CharField(max_length=20)
-    image = models.ImageField(upload_to="products/",null=True)

@@ -12,5 +12,5 @@ def home(request):
 def about(request):
     return render(request,'home/about.html',{'title':'About'})
 
-def landing(request):
-    return render(request,'home/landing.html')
+def view_products(request):
+    return render(request, 'home/view-products.html')
